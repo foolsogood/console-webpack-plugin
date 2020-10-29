@@ -7,6 +7,10 @@
 - npm i console-webpack-plugin
 - yarn add console-webpack-plugin
 
+## 在线演示
+
+[狠狠戳我](https://foolsogood.github.io/console-webpack-plugin/example/dist/index.html)
+
 ## usage
 
 ```
@@ -22,7 +26,8 @@ plugins: [
 
 ## 说明
 
-| 属性 | 说明 | 类型|
-|template| 需要显示的信息文件|string|
-|includes|需要添加的目标文件，可传数组或字符串|
-|excludes|不需要被添加的目标文件，可传数组或字符串|
+| 属性     | 说明                                     | 类型   |
+| -------- | ---------------------------------------- | ------ |
+| template | 需要显示的信息文件                       | string |
+| includes | 需要添加的目标文件，可传数组或字符串     |
+| excludes | 不需要被添加的目标文件，可传数组或字符串 |
