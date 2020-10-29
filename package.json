@@ -1,0 +1,26 @@
+{
+  "name": "console-webpack-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf lib && cross-env NODE_ENV=production tsc"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@types/node": "^14.14.6",
+    "@types/webpack": "^4.41.22",
+    "cross-env": "^7.0.2",
+    "typescript": "^4.0.5",
+    "webpack": "^4.42.1"
+  }
+}
