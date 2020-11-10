@@ -9,8 +9,8 @@ module.exports = webpackMerge(webpackBaseConf, {
   plugins: [
     new ConsoleWebpackPlugin({
       template: "./hire.txt",
-      includes: ["./index.html", "./demo.html"],
-      excludes: "./no_console.html"
+      includes: ["./index.html", "./demo.html", "./a/index.html"],
+      excludes: ["./no_console.html"]
     })
   ],
   optimization: {

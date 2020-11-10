@@ -51,8 +51,9 @@ class ConsoleWebpackPlugin implements webpack.Plugin {
         }
         // 对目标文件写入需要添加打印的信息
         function append(file: string) {
-          // 取打包目录下html文件去除路径后的名字
-          file = file.replace(/(.+\/)(?=.+?\.html)/, "");
+          // 取打包目录下 该html文件绝对路径的名字
+          file = file.replace(/(\.\/)(?=.+?\.html)/, "");
+
           const html = (compilation as any).getAsset(file);
 
           let tempHtml = html.source.source();

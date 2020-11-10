@@ -25,6 +25,11 @@ module.exports = {
       template: "./no_console.html",
       filename: "no_console.html",
       title: "no_console"
+    }),
+    new HtmlWebpackPlugin({
+      template: "./a/index.html",
+      filename: "a/index.html",
+      title: "a_index"
     })
   ]
 };
