@@ -9,7 +9,7 @@
 
 ## 在线演示
 
-[狠狠戳我](https://foolsogood.github.io/console-webpack-plugin/example/dist/index.html)
+[狠狠戳我](https://foolsogood.github.io/console-webpack-plugin/index.html)
 
 ## usage
 
@@ -18,7 +18,7 @@ const ConsoleWebpackPlugin = require("console-webpack-plugin");
 plugins: [
     new ConsoleWebpackPlugin({
       template: "./hire.txt",
-      includes: ["./index.html", "./demo.html"],
+      includes: ["./index.html", "./demo.html","./a/index.html"],
       excludes: "./no_hire.html"
     })
   ],
