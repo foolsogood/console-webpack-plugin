@@ -21,36 +21,24 @@ class ConsoleWebpackPlugin implements webpack.Plugin {
         if (!template) {
           throw "must add a template!!!";
         }
-        function read() {
+        function read(): Promise<string | Error> {
           return new Promise((resolve, reject) => {
-            fs.open(template, "r", function(
-              err: NodeJS.ErrnoException | null,
-              fd: number
-            ) {
-              if (err) {
-                reject(err);
-              }
-              const buffer = new Buffer(255);
-              // 读取文件
-              fs.read(fd, buffer, 0, 10, 0, function(
-                err: NodeJS.ErrnoException | null,
-                bytesRead,
-                buffer
-              ) {
-                if (err) {
-                  throw err;
-                }
-                const content = buffer.slice(0, bytesRead).toString();
-
-                // 关闭文件
-                fs.close(fd, () => {});
-                resolve(content);
-              });
+            var rs = fs.createReadStream(template);
+            rs.setEncoding("utf8");
+            var data = "";
+            rs.on("data", function(chunk) {
+              data += chunk;
+            });
+            rs.on("end", function() {
+              resolve(`${data}`);
+            });
+            rs.on("error", function(err: NodeJS.ErrnoException | null) {
+              reject(err);
             });
           });
         }
         // 对目标文件写入需要添加打印的信息
-        function append(file: string) {
+        function append(file: string, content: string): void {
           // 取打包目录下 该html文件绝对路径的名字
           file = file.replace(/(\.\/)(?=.+?\.html)/, "");
 
@@ -60,19 +48,20 @@ class ConsoleWebpackPlugin implements webpack.Plugin {
           const reg = /(.*)(?=<\/body>)/;
           tempHtml = tempHtml.replace(
             reg,
-            "$1" + `<script>console.log("${content}")</script>`
+            "$1" + `<script>console.log(${JSON.stringify(content)})</script>`
           );
           compilation.assets[file].source = function() {
             return tempHtml;
           };
         }
-        const content = await read();
+        let content!: string;
+        content = await read();
         if (Array.isArray(includes)) {
           includes.forEach(file => {
-            append(file);
+            append(file, content);
           });
         } else {
-          append(includes);
+          append(includes, content);
         }
         cb();
       }
