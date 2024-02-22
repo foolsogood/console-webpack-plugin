@@ -3,6 +3,10 @@
   "version": "1.0.2",
   "description": "",
   "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foolsogood/console-webpack-plugin.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf lib && cross-env NODE_ENV=production tsc"
