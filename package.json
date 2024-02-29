@@ -1,6 +1,6 @@
 {
   "name": "console-webpack-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "./lib/index.js",
   "repository": {
@@ -15,7 +15,7 @@
     "lib"
   ],
   "keywords": [],
-  "author": "",
+  "author": "foolsogood",
   "license": "ISC",
   "dependencies": {
     "@babel/cli": "^7.12.1",
