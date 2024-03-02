@@ -1,7 +1,7 @@
 {
   "name": "console-webpack-plugin",
-  "version": "1.0.6",
-  "description": "",
+  "version": "1.0.7",
+  "description": "a webpack plugin for fun",
   "main": "./lib/index.js",
   "repository": {
     "type": "git",

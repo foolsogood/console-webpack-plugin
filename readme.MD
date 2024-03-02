@@ -9,7 +9,7 @@
 
 ## 在线演示
 
-[狠狠戳我](https://foolsogood.github.io/console-webpack-plugin/example/dist/index.html)
+[狠狠戳我 ](https://foolsogood.github.io/console-webpack-plugin/example/dist/index.html)
 
 ## usage
 
